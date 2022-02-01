@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import ApiCall from './components/API/apiCall';
 
