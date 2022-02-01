@@ -1,5 +1,7 @@
 import { useState, useRef } from 'react';
+
 import Input from "../UI/Input/Input";
+import classes from './Form.module.css';
 
 const Form = props => {
     const [error, setError] = useState();
@@ -31,8 +33,8 @@ const Form = props => {
     };
     
     return (
-        <form onSubmit={submitHandler}>
-            <ul>
+        <form className={classes.Form} onSubmit={submitHandler}>
+            <ul className={classes.InputList}>
                 <Input
                     label="Activity Type"
                     input={{
@@ -99,7 +101,7 @@ const Form = props => {
                     }}
                     ref={countInputRef}
                 />
-                <li className="submit--container">
+                <li className={classes.SubmitContainer}>
                     <button type="submit" disabled={error ? true : false}>MAKE ME NOT BORED</button>
                 </li>
             </ul>
