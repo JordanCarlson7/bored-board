@@ -1,0 +1,18 @@
+.type-filter-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.type-filter-container__item {
+    background-color: #85dead;
+    color: #fff;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+    margin: 2px;
+}
+
+.type-filter-container__item:hover {
+    background-color: #56d18d;
+}
