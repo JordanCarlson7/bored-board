@@ -1,18 +1,13 @@
+import React from 'react';
+
 import classes from './Input.module.css';
 
-const Input = props => (
+const Input = React.forwardRef((props, ref) => (
     <li className={classes["input--container"]}>
-        <label className={classes["input--label"]} htmlFor={props.name}>{props.title}</label>
-        <input
-            id={props.name}
-            type={props.type}
-            title={props.tooltip}
-            list={props.datalistId}
-            min={props.min}
-            max={props.max}
-        />
+        <label className={classes["input--label"]} htmlFor={props.input.id}>{props.label}</label>
+        <input ref={ref} {...props.input} />
         {props.datalist}
     </li>
-);
+));
 
 export default Input;

@@ -3,9 +3,13 @@ import ApiCall from './components/API/apiCall';
 import Form from './components/Home/Form';
 
 function App() {
+  const submitHandler = (activity, count) => {
+    console.log(activity, count);
+  };
+
   return (<>
     <ApiCall/>
-    <Form />
+    <Form onSubmit={submitHandler} />
   </>
      );
 }
