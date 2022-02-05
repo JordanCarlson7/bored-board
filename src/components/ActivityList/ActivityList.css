@@ -1,0 +1,29 @@
+
+.activities-list-container{
+    margin: 1em;
+    display: grid;
+    grid-template-columns: 200px 4fr;
+    grid-template-rows: auto;
+    background-color: #aaa;
+    padding: 2em;
+    border-radius: 10px;
+
+}
+
+.activity-list{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    flex-wrap: wrap;
+    padding-left: 1em;
+    justify-content: flex-start;
+}
+
+.activities-list-container__right {
+    grid-column: 2 / span 3;
+}
+
+.activities-list-container__left {
+    grid-column: 1 / span 1;
+    max-width: 200px;
+}
