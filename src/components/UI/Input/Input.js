@@ -7,10 +7,12 @@ const Input = React.forwardRef((props, ref) => {
     const inputRef = useRef();
 
     useImperativeHandle(ref, () => ({
-        // focus: () => { inputRef.current.focus(); },
         get input() { return inputRef.current; },
         get checkbox() { return checkboxRef.current; }
     }));
+
+    const changeHandler = () => { checkboxRef.current.checked = true; };
+    const datalistFocusHandler = () => { inputRef.current.value = ''; };
     
     return (
         <li className={classes.InputContainer}>
@@ -18,7 +20,13 @@ const Input = React.forwardRef((props, ref) => {
                 {props.toggle && <input type="checkbox" className={classes.InputToggle} ref={checkboxRef} />}
                 {props.label}
             </label>
-            <input className={classes.Input} ref={inputRef} {...props.input} />
+            <input
+                className={classes.Input}
+                ref={inputRef}
+                {...props.input}
+                {...(props.toggle && {onChange: changeHandler})}
+                {...(props.datalist && {onFocus: datalistFocusHandler})}
+            />
             {props.datalist}
         </li>
     )}
