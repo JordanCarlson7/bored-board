@@ -58,9 +58,9 @@ const Form = props => {
                     input={{
                         id: "participants",
                         type: "number",
-                        min: "1",
-                        max: "20",
-                        defaultValue: "1",
+                        min: 1,
+                        max: 20,
+                        defaultValue: 1,
                         title: "The number of people that this activity could involve (between 1 and 50)",
                     }}
                     ref={participantsRef}
@@ -71,10 +71,10 @@ const Form = props => {
                     input={{
                         id: "price",
                         type: "range",
-                        min: "0",
-                        max: "100",
-                        step: "5",
-                        defaultValue: "0",
+                        min: 0,
+                        max: 100,
+                        step: 5,
+                        defaultValue: 0,
                         title: "A factor describing the cost of the event with zero being free",
                     }}
                     ref={priceRef}
@@ -85,10 +85,10 @@ const Form = props => {
                     input={{
                         id: "accessibility",
                         type: "range",
-                        min: "0",
-                        max: "100",
-                        step: "10",
-                        defaultValue: "0",
+                        min: 0,
+                        max: 100,
+                        step: 10,
+                        defaultValue: 0,
                         title: "A factor describing how possible an event is to do with zero being the most accessible",
                     }}
                     ref={accessibilityRef}
@@ -98,9 +98,9 @@ const Form = props => {
                     input={{
                         id: "count",
                         type: "number",
-                        min: "1",
-                        max: "10",
-                        defaultValue: "1",
+                        min: 1,
+                        max: 10,
+                        defaultValue: 1,
                         title: "How many activity ideas would you like to see?",
                     }}
                     ref={countRef}

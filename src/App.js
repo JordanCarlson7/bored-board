@@ -61,8 +61,8 @@ function App() {
     },
   ];
 
-  const submitHandler = response => {
-    console.log(response);
+  const submitHandler = (fetchParams, count) => {
+    console.log(fetchParams, count);
   };
 
   return (
