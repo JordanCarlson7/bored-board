@@ -15,7 +15,7 @@ const Input = React.forwardRef((props, ref) => {
     return (
         <li className={classes.InputContainer}>
             <label className={classes.InputLabel} htmlFor={props.input.id}>
-                <input type="checkbox" id={`${props.input.id}--checkbox`} ref={checkboxRef} />
+                {props.toggle && <input type="checkbox" id={`${props.input.id}--checkbox`} ref={checkboxRef} />}
                 {props.label}
             </label>
             <input className={classes.Input} ref={inputRef} {...props.input} />

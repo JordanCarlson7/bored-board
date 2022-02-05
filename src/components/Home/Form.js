@@ -24,12 +24,12 @@ const Form = props => {
             return;
         }
 
-        props.onSubmit({
-            accessibility: accessibilityRef.current.input.value / 100,
-            type: typeRef.current.input.value.toLowerCase(),
-            participants: participantsRef.current.input.value,
-            price: priceRef.current.input.value / 100
-        }, countRef.current.input.value);
+        let accessibility = accessibilityRef.current.checkbox.checked ? accessibilityRef.current.input.value / 100 : null;
+        let type = typeRef.current.checkbox.checked ? typeRef.current.input.value.toLowerCase() : null;
+        let participants = participantsRef.current.checkbox.checked ? participantsRef.current.input.value : null;
+        let price = priceRef.current.checkbox.checked ? priceRef.current.input.value / 100 : null;
+
+        props.onSubmit({accessibility, type, participants, price}, countRef.current.input.value);
     };
     
     return (
@@ -37,6 +37,7 @@ const Form = props => {
             <ul className={classes.InputList}>
                 <Input
                     label="Activity Type"
+                    toggle
                     input={{
                         id: "type",
                         type: "text",
@@ -53,6 +54,7 @@ const Form = props => {
                 />
                 <Input
                     label="Participants"
+                    toggle
                     input={{
                         id: "participants",
                         type: "number",
@@ -65,6 +67,7 @@ const Form = props => {
                 />
                 <Input
                     label="Price"
+                    toggle
                     input={{
                         id: "price",
                         type: "range",
@@ -78,6 +81,7 @@ const Form = props => {
                 />
                 <Input
                     label="Accessibility"
+                    toggle
                     input={{
                         id: "accessibility",
                         type: "range",
