@@ -6,11 +6,11 @@ import classes from './Form.module.css';
 const Form = props => {
     const [error, setError] = useState();
 
-    const typeInputRef = useRef();
-    const participantsInputRef = useRef();
-    const priceInputRef = useRef();
-    const accessibilityInputRef = useRef();
-    const countInputRef = useRef();
+    const typeRef = useRef();
+    const participantsRef = useRef();
+    const priceRef = useRef();
+    const accessibilityRef = useRef();
+    const countRef = useRef();
 
     // default list of activity types from boredapi.com/documentation
     const typeList = ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"];
@@ -25,11 +25,11 @@ const Form = props => {
         }
 
         props.onSubmit({
-            accessibility: accessibilityInputRef.current.value / 100,
-            type: typeInputRef.current.value.toLowerCase(),
-            participants: participantsInputRef.current.value,
-            price: priceInputRef.current.value / 100
-        }, countInputRef.current.value);
+            accessibility: accessibilityRef.current.input.value / 100,
+            type: typeRef.current.input.value.toLowerCase(),
+            participants: participantsRef.current.input.value,
+            price: priceRef.current.input.value / 100
+        }, countRef.current.input.value);
     };
     
     return (
@@ -49,7 +49,7 @@ const Form = props => {
                             {typeList.map(t => (<option key={t} value={t}/>))}
                         </datalist>
                     }
-                    ref={typeInputRef}
+                    ref={typeRef}
                 />
                 <Input
                     label="Participants"
@@ -61,7 +61,7 @@ const Form = props => {
                         defaultValue: "1",
                         title: "The number of people that this activity could involve (between 1 and 50)",
                     }}
-                    ref={participantsInputRef}
+                    ref={participantsRef}
                 />
                 <Input
                     label="Price"
@@ -74,7 +74,7 @@ const Form = props => {
                         defaultValue: "0",
                         title: "A factor describing the cost of the event with zero being free",
                     }}
-                    ref={priceInputRef}
+                    ref={priceRef}
                 />
                 <Input
                     label="Accessibility"
@@ -87,7 +87,7 @@ const Form = props => {
                         defaultValue: "0",
                         title: "A factor describing how possible an event is to do with zero being the most accessible",
                     }}
-                    ref={accessibilityInputRef}
+                    ref={accessibilityRef}
                 />
                 <Input
                     label="Ideas to Show"
@@ -99,7 +99,7 @@ const Form = props => {
                         defaultValue: "1",
                         title: "How many activity ideas would you like to see?",
                     }}
-                    ref={countInputRef}
+                    ref={countRef}
                 />
                 <li className={classes.SubmitContainer}>
                     <button type="submit" disabled={error ? true : false}>MAKE ME NOT BORED</button>

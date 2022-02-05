@@ -1,6 +1,7 @@
 import "./App.css";
 import ApiCall from "./components/API/apiCall";
 import ActivityList from "./components/ActivityList/ActivityList";
+import Form from './components/Home/Form';
 
 function App() {
   let dummyActivities = [
@@ -60,9 +61,14 @@ function App() {
     },
   ];
 
+  const submitHandler = response => {
+    console.log(response);
+  };
+
   return (
     <>
     <ApiCall/>
+    <Form onSubmit={submitHandler} />
     <ActivityList activities={dummyActivities} />
     </>
      );
