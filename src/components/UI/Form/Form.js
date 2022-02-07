@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 
-import Input from "../UI/Input/Input";
+import Input from "../Input/Input";
 import classes from './Form.module.css';
 
 const Form = props => {

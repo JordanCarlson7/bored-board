@@ -1,7 +1,7 @@
 import "./App.css";
 import ApiCall from "./components/API/apiCall";
 import ActivityList from "./components/ActivityList/ActivityList";
-import Form from './components/Home/Form';
+import Form from './components/UI/Form/Form';
 
 function App() {
   let dummyActivities = [
@@ -67,7 +67,6 @@ function App() {
 
   return (
     <>
-    <ApiCall/>
     <Form onSubmit={submitHandler} />
     <ActivityList activities={dummyActivities} />
     </>
