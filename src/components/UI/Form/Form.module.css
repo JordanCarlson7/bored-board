@@ -1,0 +1,20 @@
+.Form {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.InputList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.SubmitContainer {
+    border: none;
+    text-align: center;
+    margin-bottom: 15px;
+}

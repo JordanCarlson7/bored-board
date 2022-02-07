@@ -1,0 +1,38 @@
+.InputContainer {
+    display: block;
+    padding: 9px;
+    border: 1px solid #000000;
+    margin-bottom: 30px;
+    border-radius: 6px;
+}
+
+.InputLabel {
+    display: block;
+    float: left;
+    margin-top: -21px;
+    background: #fff;
+    height: 22.5px;
+    padding: 2px 5px;
+    font-size: 14px;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Input {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    display: block;
+    outline: none;
+    border: none;
+    height: 25px;
+    line-height: 25px;
+    font-size: 16px;
+    padding: 0;
+}
+
+.InputToggle {
+    margin-right: 5px;
+    display: inline-block;
+}
