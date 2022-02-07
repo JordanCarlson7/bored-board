@@ -1,9 +1,12 @@
 import "./App.css";
+import { useState } from "react";
 import ApiCall from "./components/API/apiCall";
 import ActivityList from "./components/ActivityList/ActivityList";
-import Form from './components/UI/Form/Form';
+import ActivityTypeFilter from "./components/ActivityList/ActivityTypeFilter";
+import Form from "./components/UI/Form/Form";
 
 function App() {
+  const [filter, setFilter] = useState("");
   let dummyActivities = [
     {
       activity: "Patronize a local independent restaurant",
@@ -67,10 +70,18 @@ function App() {
 
   return (
     <>
-    <Form onSubmit={submitHandler} />
-    <ActivityList activities={dummyActivities} />
+      <div className="activities-list-container">
+        <h1>Activity List</h1>
+        <div className="activities-list-container__left">
+          <ActivityTypeFilter setFilter={setFilter} />
+        </div>
+        <div className="activities-list-container__right">
+          <ActivityList activities={dummyActivities} filter={filter} />
+          <Form onSubmit={submitHandler} />
+        </div>
+      </div>
     </>
-     );
+  );
 }
 
 export default App;
