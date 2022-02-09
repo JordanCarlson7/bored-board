@@ -5,7 +5,6 @@
 }
 
 .type-filter-container__item {
-    background-color: #85dead;
     color: #fff;
     border-radius: 10px;
     width: 100%;
@@ -13,6 +12,40 @@
     margin: 2px;
 }
 
-.type-filter-container__item:hover {
+
+.type-filter {
+    background-color: #85dead;
+}
+
+.type-filter:hover {
     background-color: #56d18d;
+}
+
+.participants-filter {
+    background-color: #85dbde;
+}
+
+.participants-filter:hover {
+    background-color: #56cdd1;
+}
+
+.price-filter {
+    background-color: #d8de85;
+}
+
+.price-filter:hover {
+    background-color: #c5d156;
+}
+
+.accessibility-filter {
+    background-color: #de8585;
+}
+
+.accessibility-filter:hover {
+    background-color: #d15656;
+}
+
+.filter-type-title {
+    margin-left: .5em;
+    color: white;
 }

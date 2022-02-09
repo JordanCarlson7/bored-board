@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import ActivityItem from "./ActivityItem";
 import ActivityTypeFilter from "./ActivityTypeFilter";
 
-export default function ActivityList({ activities, filter }) {
+export default function ActivityList({ activities, filter, filterType }) {
 
   const createActivityComponent = (activity) => {
     return (
@@ -25,7 +25,7 @@ export default function ActivityList({ activities, filter }) {
         <div className="activity-list">
           {filter !== "" &&
             activities
-              .filter((activity) => activity.type === filter)
+              .filter((activity) => activity[filterType] === filter)
               .map((activity) => {
                 return createActivityComponent(activity);
               })}
@@ -34,7 +34,7 @@ export default function ActivityList({ activities, filter }) {
               return createActivityComponent(activity);
             })}
           {filter !== "" &&
-            activities.filter((activity) => activity.type === filter).length === 0 &&
+            activities.filter((activity) => activity[filterType] === filter).length === 0 &&
             <h2>:/ sorry, no available activites for #{filter}</h2>
         }
         </div>
