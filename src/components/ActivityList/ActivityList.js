@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import ActivityItem from "./ActivityItem";
 import ActivityTypeFilter from "./ActivityTypeFilter";
 
-export default function ActivityList({ activities, filter, filterType }) {
+export default function ActivityList({ data, activities, filter, filterType }) {
 
   const createActivityComponent = (activity) => {
     return (
