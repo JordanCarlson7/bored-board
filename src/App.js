@@ -73,7 +73,7 @@ function App() {
       <div className="activities-list-container">
         <h1>Activity List</h1>
         <div className="activities-list-container__left">
-          <ActivityTypeFilter setFilter={setFilter} />
+          <ActivityTypeFilter setFilter={setFilter} filterTypes={dummyActivities.map(activity => activity.type)}/>
         </div>
         <div className="activities-list-container__right">
           <ActivityList activities={dummyActivities} filter={filter} />
