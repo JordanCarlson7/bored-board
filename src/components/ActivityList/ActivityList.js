@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import ActivityItem from "./ActivityItem";
 import ActivityTypeFilter from "./ActivityTypeFilter";
 
-export default function ActivityList({ activities }) {
+export default function ActivityList({ data }) {
   const [filter, setFilter] = useState("");
+  const [activities, setActivities] = useState(data)
 
   const createActivityComponent = (activity) => {
     return (
