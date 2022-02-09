@@ -7,6 +7,7 @@ import Form from "./components/UI/Form/Form";
 
 function App() {
   const [filter, setFilter] = useState("");
+  const [filterType, setFilterType] = useState("type");
   let dummyActivities = [
     {
       activity: "Patronize a local independent restaurant",
@@ -73,10 +74,10 @@ function App() {
       <div className="activities-list-container">
         <h1>Activity List</h1>
         <div className="activities-list-container__left">
-          <ActivityTypeFilter setFilter={setFilter} />
+          <ActivityTypeFilter setFilter={setFilter} setFilterType={setFilterType} filterType={filterType} activities={dummyActivities}/>
         </div>
         <div className="activities-list-container__right">
-          <ActivityList activities={dummyActivities} filter={filter} />
+          <ActivityList activities={dummyActivities} filter={filter} filterType={filterType}/>
           <Form onSubmit={submitHandler} />
         </div>
       </div>
