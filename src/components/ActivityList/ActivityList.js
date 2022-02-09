@@ -4,8 +4,7 @@ import React, { useState } from "react";
 import ActivityItem from "./ActivityItem";
 import ActivityTypeFilter from "./ActivityTypeFilter";
 
-export default function ActivityList({ data }) {
-  const [filter, setFilter] = useState("");
+export default function ActivityList({ data, filter }) {
   const [activities, setActivities] = useState(data)
 
   const createActivityComponent = (activity) => {
@@ -23,12 +22,7 @@ export default function ActivityList({ data }) {
   };
 
   return (
-    <div className="activities-list-container">
-      <h1>Activity List</h1>
-      <div className="activities-list-container__left">
-        <ActivityTypeFilter setFilter={setFilter} />
-      </div>
-      <div className="activities-list-container__right">
+
         <div className="activity-list">
           {filter !== "" &&
             activities
@@ -45,7 +39,6 @@ export default function ActivityList({ data }) {
             <h2>:/ sorry, no available activites for #{filter}</h2>
         }
         </div>
-      </div>
-    </div>
+
   );
 }
