@@ -1,8 +1,7 @@
 import "./ActivityList.css";
 
-import React, { useState, useContext } from "react";
 import ActivityItem from "./ActivityItem";
-import ActivityTypeFilter from "./ActivityTypeFilter";
+// import ActivityTypeFilter from "./ActivityTypeFilter";
 
 export default function ActivityList({ data, activities, filter, filterType }) {
 

@@ -1,11 +1,9 @@
 import "./App.css";
-import React, { useState, createContext, useContext } from "react";
+import React, { useState } from "react";
 import apiCall from './API/apiCall';
 import ActivityList from "./components/ActivityList/ActivityList";
 import ActivityTypeFilter from "./components/ActivityList/ActivityTypeFilter";
 import Form from "./components/UI/Form/Form";
-
-const DataContext = createContext();
 
 function App() {
   const [filter, setFilter] = useState("");
