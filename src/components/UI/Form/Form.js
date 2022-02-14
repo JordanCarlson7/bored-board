@@ -69,7 +69,10 @@ const Form = props => {
           };
         //   setActivities(transformedData, ...activities);
         //   console.log(props.state);
-          activities.push(transformedData);
+        activities.push(transformedData);
+        props.setState(activities)
+        console.log("USE EFFECT", props.state)
+         
           console.log(activities);
         } catch (error) {
         //   setError(error.message);

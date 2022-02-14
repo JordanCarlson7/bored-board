@@ -1,11 +1,12 @@
 import "./ActivityList.css";
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ActivityItem from "./ActivityItem";
 import ActivityTypeFilter from "./ActivityTypeFilter";
+import DataContext
 
-export default function ActivityList({ data, filter }) {
-  const [activities, setActivities] = useState(data)
+export default function ActivityList({ activities, filter }) {
+  const activities = useContext()
 
   const createActivityComponent = (activity) => {
     return (
