@@ -29,11 +29,16 @@ function App() {
       <div className="activities-list-container">
         <h1>Activity List</h1>
         <div className="activities-list-container__left">
-          <ActivityTypeFilter setFilter={setFilter} />
+          <ActivityTypeFilter setFilter={setFilter} setFilterType={setFilterType} filterType={filterType} activities={dummyActivities}/>
         </div>
         <div className="activities-list-container__right">
+<<<<<<< HEAD
           <ActivityList activities={activities} filter={filter} />
           <Form onSubmit={submitHandler} state={activities} setState={setActivities} />
+=======
+          <ActivityList activities={dummyActivities} filter={filter} filterType={filterType}/>
+          <Form onSubmit={submitHandler} />
+>>>>>>> 9136729b46bd7e63ce9b4a2e25c4630e09ee3bac
         </div>
       </div>
     </DataContext.Provider>
