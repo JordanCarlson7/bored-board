@@ -2,13 +2,13 @@ import "./ActivityTypeFilter.css";
 import {useState} from "react";
 
 export default function ActivityTypeFilter({ setFilter, setFilterType, filterType, activities }) {
-  const typeFilters = [...new Set(activities.map(activity => activity.type).sort((a,b) => {return a > b ? 1 : -1}))];
-  const participantFilters = [...new Set(activities.map(activity => activity.participants).sort((a,b) => {return a > b ? 1 : -1}))];
-  const priceFilters = [...new Set(activities.map(activity => activity.price).sort((a,b) => {return a > b ? 1 : -1}))];
-  const accessibilityFilters = [...new Set(activities.map(activity => activity.accessibility).sort((a,b) => {return a > b ? 1 : -1}))];
+  const typeFilters = [...new Set(activities?.map(activity => activity.type).sort((a,b) => {return a > b ? 1 : -1}))];
+  const participantFilters = [...new Set(activities?.map(activity => activity.participants).sort((a,b) => {return a > b ? 1 : -1}))];
+  const priceFilters = [...new Set(activities?.map(activity => activity.price).sort((a,b) => {return a > b ? 1 : -1}))];
+  const accessibilityFilters = [...new Set(activities?.map(activity => activity.accessibility).sort((a,b) => {return a > b ? 1 : -1}))];
   
   const [activityFilters, setActivityFilters] = useState(typeFilters);
-  const [filterStyle, setFilterStyle] = useState("type-filter")
+  const [filterStyle, setFilterStyle] = useState("type-filter");
   
 
   return (

@@ -1,12 +1,9 @@
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import Input from "../Input/Input";
 import classes from './Form.module.css';
-let url = "https://www.boredapi.com/api/activity?";
 
 const Form = props => {
     const [error, setError] = useState();
-    let activities = props.state;
-    
    
     const typeRef = useRef();
     const participantsRef = useRef();
@@ -36,57 +33,9 @@ const Form = props => {
             participants: participants,
             price: price
         }
-       APIHandler(args)
 
-        props.onSubmit({accessibility, type, participants, price}, countRef.current.input.value);
+        props.onSubmit(args, countRef.current.input.value);
     };
-    
-    /* API CONNECT */
-    const APIHandler = useCallback(async (args) => {
-        if (args.accessibility) { url += `accessibility=${args.accessibility}&`};
-        console.log(url);
-        if (args.type) {url += `type=${args.type}&`};
-        console.log(url);
-        if (args.participants) { url += `participants=${args.participants}&`};
-        console.log(url);
-        if (args.price) {url += `price=${args.price}&`};
-        console.log(url);
-        try {
-          const response = await fetch(url);
-          if (!response.ok) {
-            throw new Error("Something went wrong!");
-          }
-          const data = await response.json();
-    
-          const transformedData = {
-            activity: data.activity,
-            type: data.type,
-            participants: data.participants,
-            price: data.price,
-            link: data.link,
-            key: data.key,
-            accessibility: data.accessibility,
-          };
-        //   setActivities(transformedData, ...activities);
-        //   console.log(props.state);
-        activities.push(transformedData);
-        props.setState(activities)
-        console.log("USE EFFECT", props.state)
-         
-          console.log(activities);
-        } catch (error) {
-        //   setError(error.message);
-            console.log(error)
-        }
-        url = "https://www.boredapi.com/api/activity?";
-      }, [activities]);
-    
-
-    /* API CONNECT */
-    useEffect(() => {
-        props.setState(activities)
-        console.log("USE EFFECT", props.state)
-    }, [APIHandler, activities]);
     
     return (
         <form className={classes.Form} onSubmit={submitHandler}>
