@@ -4,10 +4,12 @@ import apiCall from './API/apiCall';
 import ActivityList from "./components/ActivityList/ActivityList";
 import ActivityTypeFilter from "./components/ActivityList/ActivityTypeFilter";
 import Form from "./components/UI/Form/Form";
+import Header from './components/header/Header';
 
 function App() {
   const [filter, setFilter] = useState("");
   const [filterType, setFilterType] = useState("type");
+  const [showForm, setShowForm] = useState(false);
   const [activities, setActivities] = useState([{
     activity: "Patronize a local independent restaurant",
     type: "recreational",
@@ -36,14 +38,14 @@ function App() {
 
   return (
     <React.Fragment>
+      <Header handleShowFilterForm={setShowForm}/>
       <div className="activities-list-container">
-        <h1>Activity List</h1>
         <div className="activities-list-container__left">
           <ActivityTypeFilter setFilter={setFilter} setFilterType={setFilterType} filterType={filterType} activities={activities}/>
+          {showForm && <Form onSubmit={submitHandler} />}
         </div>
         <div className="activities-list-container__right">
           <ActivityList activities={activities} filter={filter} filterType={filterType} />
-          <Form onSubmit={submitHandler} />
         </div>
       </div>
     </React.Fragment>
