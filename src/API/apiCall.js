@@ -1,4 +1,7 @@
-const buildQueryString = (baseUrl, { accessibility, type, participants, price }) => {
+const baseUrl = "https://www.boredapi.com/api/activity";
+
+// Build URL with any given query params
+const buildUrl = (baseUrl, { accessibility, type, participants, price }) => {
   let queryParams = [];
   if (accessibility && accessibility !== 0) queryParams.push(`minaccessibility=0&maxaccessibility=${accessibility}`);
   if (type && type !== 0) queryParams.push(`type=${type}`);
@@ -10,15 +13,12 @@ const buildQueryString = (baseUrl, { accessibility, type, participants, price })
   return url;
 };
 
-/* API CONNECT */
+// Single Fetch Request
 const MakeRequest = async (args) => {
-  const baseUrl = "https://www.boredapi.com/api/activity";
-  const url = buildQueryString(baseUrl, args);
+  const url = buildUrl(baseUrl, args);
   try {
     const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error("Something went wrong!");
-    }
+    if (!response.ok) throw new Error("Something went wrong!");
     const data = await response.json();
 
     const transformedData = {
@@ -36,6 +36,7 @@ const MakeRequest = async (args) => {
   }
 };
 
+// Call MakeRequest x times
 const APIHandler = async (args, count) => {
   try {
     let activities = [];
@@ -43,7 +44,7 @@ const APIHandler = async (args, count) => {
       let activity = await MakeRequest(args);
       if (activities.some(a => a.key === activity.key)) continue;
       activities.push(activity);
-      console.log(activities);
+      console.log(JSON.stringify(activities, null, 4));
     }
     return activities;
   } catch(err) {

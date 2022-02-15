@@ -13,7 +13,7 @@ function App() {
   // Initialize setActivities by calling submitHandler on first render
   useEffect(() => {
     const initFetch = async () => {
-      await submitHandler({}, 10);
+      await submitHandler({}, 10); // no params, 10 basic requests
     };
     initFetch();
   }, [setActivities]);

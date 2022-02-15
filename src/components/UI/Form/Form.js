@@ -17,22 +17,17 @@ const Form = props => {
     // submission event handler
     const submitHandler = event => {
         event.preventDefault();
-        if (!true) {
-            // DATA VALIDATION IF APPLICABLE
-            setError("ERROR");
-            return;
-        }
+        // DATA VALIDATION IF APPLICABLE
+        // if (!true) {
+        //     setError("ERROR");
+        //     return;
+        // }
 
         let accessibility = accessibilityRef.current.checkbox.checked ? accessibilityRef.current.input.value / 100 : null;
         let type = typeRef.current.checkbox.checked ? typeRef.current.input.value.toLowerCase() : null;
         let participants = participantsRef.current.checkbox.checked ? participantsRef.current.input.value : null;
         let price = priceRef.current.checkbox.checked ? priceRef.current.input.value / 100 : null;
-        let args = {
-            accessibility: accessibility,
-            type: type,
-            participants: participants,
-            price: price
-        }
+        let args = { accessibility: accessibility, type: type, participants: participants, price: price };
         console.log(args);
 
         props.onSubmit(args, countRef.current.input.value);
@@ -105,7 +100,7 @@ const Form = props => {
                         id: "count",
                         type: "number",
                         min: 1,
-                        max: 10,
+                        max: 20,
                         defaultValue: 1,
                         title: "How many activity ideas would you like to see?",
                     }}
