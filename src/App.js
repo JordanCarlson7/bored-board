@@ -9,6 +9,7 @@ import Header from './components/header/Header';
 function App() {
   const [filter, setFilter] = useState("");
   const [filterType, setFilterType] = useState("type");
+  const [showForm, setShowForm] = useState(false);
   const [activities, setActivities] = useState([]);
   
   // Initialize setActivities by calling submitHandler on first render
