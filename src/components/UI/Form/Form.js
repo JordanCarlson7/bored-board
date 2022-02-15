@@ -33,6 +33,7 @@ const Form = props => {
             participants: participants,
             price: price
         }
+        console.log(args);
 
         props.onSubmit(args, countRef.current.input.value);
     };
@@ -71,7 +72,7 @@ const Form = props => {
                     ref={participantsRef}
                 />
                 <Input
-                    label="Price"
+                    label="Max Price"
                     toggle
                     input={{
                         id: "price",
@@ -85,7 +86,7 @@ const Form = props => {
                     ref={priceRef}
                 />
                 <Input
-                    label="Accessibility"
+                    label="Max Accessibility"
                     toggle
                     input={{
                         id: "accessibility",

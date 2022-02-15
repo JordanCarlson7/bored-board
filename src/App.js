@@ -1,6 +1,6 @@
 import "./App.css";
-import React, { useState } from "react";
-import apiCall from './API/apiCall';
+import React, { useEffect, useState } from "react";
+import { APIHandler } from './API/apiCall';
 import ActivityList from "./components/ActivityList/ActivityList";
 import ActivityTypeFilter from "./components/ActivityList/ActivityTypeFilter";
 import Form from "./components/UI/Form/Form";
@@ -8,26 +8,19 @@ import Form from "./components/UI/Form/Form";
 function App() {
   const [filter, setFilter] = useState("");
   const [filterType, setFilterType] = useState("type");
-  const [activities, setActivities] = useState([{
-    activity: "Patronize a local independent restaurant",
-    type: "recreational",
-    participants: 1,
-    price: 0.2,
-    link: "",
-    key: "5319204",
-    accessibility: 0.1,
-  }]);
-  console.log('app.js', activities);
+  const [activities, setActivities] = useState([]);
+  
+  // Initialize setActivities by calling submitHandler on first render
+  useEffect(() => {
+    const initFetch = async () => {
+      await submitHandler({}, 10);
+    };
+    initFetch();
+  }, [setActivities]);
 
   const submitHandler = async (fetchParams, count) => {
     try {
-      let newActivities = [];
-      for (let i = 0; i < count; i++) {
-        let activity = await apiCall(fetchParams);
-        if (newActivities.some(a => a.key === activity.key)) continue;
-        newActivities.push(activity);
-        console.log(newActivities);
-      }
+      let newActivities = await APIHandler(fetchParams, count);
       setActivities(newActivities);
     } catch(err) {
       console.error(err);
