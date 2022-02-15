@@ -1,0 +1,34 @@
+.header {
+    height: 150px;
+    padding: 1em;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.header__right {
+    float: right;
+}
+
+.header__title {
+    color: #aaa; 
+    font-weight: bolder;
+    padding-left: 1em;
+}
+
+.header__left {
+    float: left;
+}
+
+.filter-btn {
+    border-radius: 10px;
+    border: none;
+    background-color: #aaa;
+    margin: 1em;
+}
+
+.filter-btn:hover {
+    background-color: #888;
+}
+
+.filter-btn:active {
+    background-color: #85dead;
+}
