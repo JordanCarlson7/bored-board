@@ -9,3 +9,13 @@
     padding-left: 1em;
     justify-content: flex-start;
 }
+
+.back-header-container {
+
+}
+
+.back-header-container__right{
+    position: relative;
+    float: right;
+    margin-left: 2px;
+}

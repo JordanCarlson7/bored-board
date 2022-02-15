@@ -1,0 +1,141 @@
+
+ .toggle-wrapper {
+	 /* padding: 16px; */
+	 position: relative;
+}
+ .toggle-input {
+	 position: absolute;
+	 width: 0;
+	 height: 0;
+	 opacity: 0;
+	 outline: none;
+}
+ .toggle-input:checked + label {
+	 background-color: #fff;
+}
+ .toggle-input:checked + label > .toggle-circle {
+	 left: calc(100% - 44px);
+}
+ .toggle-input:checked + label > .toggle-circle .pin-icon {
+	 transform: rotate(0);
+}
+ .toggle-input:checked + label > .toggle-circle .pin-top {
+	 animation: pushPinTop 0.4s ease-in-out 0.55s;
+}
+ .toggle-input:checked + label > .toggle-circle .pin-middle, .toggle-input:checked + label > .toggle-circle .pin-bottom:before {
+	 animation: pushPin 0.4s ease-in-out 0.55s;
+}
+ .toggle-container {
+	 border-radius: 30px;
+	 display: block;
+	 width: 100px;
+	 height: 40px;
+	 background-color: #1018a4;
+	 position: relative;
+	 cursor: pointer;
+	 transition: all 0.2s cubic-bezier(0.35, 0.4, 0.45, 0.2);
+}
+ .toggle-circle {
+	 position: absolute;
+	 top: 50%;
+	 left: -4px;
+	 transform: translatey(-50%);
+	 background-color: #fff;
+	 width: 44px;
+	 height: 44px;
+	 border-radius: 50%;
+	 box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+	 transition: all 0.3s cubic-bezier(0.33, 0.44, 0.45, 1.65);
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+	 color: #041043;
+}
+ .pin-icon {
+	 transition: all 0.2s ease-in-out;
+	 transition-delay: 0.4s;
+	 width: 24px;
+	 height: 24px;
+	 display: flex;
+	 flex-direction: column;
+	 align-items: center;
+	 transform: rotate(45deg);
+	 position: relative;
+}
+ .pin-icon span {
+	 flex-shrink: 0;
+	 position: relative;
+}
+ .pin-top {
+	 display: inline-block;
+	 border-radius: 4px;
+	 background-color: #25263c;
+	 width: 14px;
+	 height: 2px;
+	 top: -3px;
+}
+ .pin-middle {
+	 width: 12px;
+	 height: 12px;
+	 top: -3px;
+}
+ .pin-middle:before, .pin-middle:after {
+	 content: "";
+	 position: absolute;
+	 background-color: #25263c;
+	 width: 2px;
+	 height: 16px;
+	 top: -1px;
+	 border-radius: 4px;
+}
+ .pin-middle:before {
+	 transform: rotate(16deg);
+	 left: 0;
+}
+ .pin-middle:after {
+	 transform: rotate(-16deg);
+	 right: 0;
+}
+ .pin-bottom {
+	 display: inline-block;
+	 border-radius: 4px;
+	 background-color: #25263c;
+	 width: 2px;
+	 height: 12px;
+	 position: relative;
+	 bottom: -1px;
+}
+ .pin-bottom:before {
+	 content: "";
+	 position: absolute;
+	 background-color: #25263c;
+	 width: 20px;
+	 height: 2px;
+	 left: 50%;
+	 border-radius: 4px;
+	 transform: translatex(-50%);
+	 top: -3px;
+}
+ @keyframes pushPin {
+	 60% {
+		 top: -2px;
+	}
+	 85% {
+		 top: -2px;
+	}
+	 100% {
+		 top: -3px;
+	}
+}
+ @keyframes pushPinTop {
+	 60% {
+		 top: -5px;
+	}
+	 85% {
+		 top: -5px;
+	}
+	 100% {
+		 top: -4px;
+	}
+}
+ 
