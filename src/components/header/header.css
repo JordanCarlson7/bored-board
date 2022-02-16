@@ -19,17 +19,23 @@
     float: left;
 }
 
-.filter-btn {
+.btn {
+    width: 4em;
+    height: 3em;
     border-radius: 10px;
     border: none;
     background-color: #aaa;
-    margin: 1em;
+    margin: .5em;
 }
 
-.filter-btn:hover {
+.btn:hover {
     background-color: #888;
 }
 
-.filter-btn:active {
+.filter-btn-active {
     background-color: #85dead;
+}
+
+.pin-btn-active {
+    background-color: #d8de85;
 }

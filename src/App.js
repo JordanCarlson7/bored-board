@@ -10,11 +10,12 @@ import Spinner from "./components/UI/Spinner/Spinner";
 
 function App() {
   const [filter, setFilter] = useState("");
-  const [filterType, setFilterType] = useState("type");
+  const [filterType, setFilterType] = useState("filter");
   const [showForm, setShowForm] = useState(false);
+  const [showPinnedActivities, setShowPinnedActivities] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
   const [activities, setActivities] = useState([]);
-  const [pinnedActivites, setPinnedActivites] = useState([]);
+  const [pinnedActivities, setPinnedActivities] = useState([]);
 
   // Initialize setActivities by calling submitHandler on first render
   useEffect(() => {
@@ -39,7 +40,7 @@ function App() {
 
   return (
     <React.Fragment>
-      <Header handleShowFilterForm={() => { setShowForm(!showForm); }}/>
+      <Header handleShowFilterForm={() => { setShowForm(!showForm); }} handleShowPinnedActivities = {() => setShowPinnedActivities(!showPinnedActivities)}/>
       <div className="activities-list-container">
         <div className="activities-list-container__left">
           {!showForm && <ActivityTypeFilter
@@ -52,13 +53,20 @@ function App() {
         </div>
         <div className="activities-list-container__right">
         {isLoading && <Spinner />}
-          <ActivityList
+        {!showPinnedActivities && <ActivityList
             activities={activities}
             filter={filter}
             filterType={filterType}
-            pinnedActivites={pinnedActivites}
-            setPinnedActivites={setPinnedActivites}
-          />
+            pinnedActivities={pinnedActivities}
+            setPinnedActivities={setPinnedActivities}
+          />}
+            {showPinnedActivities && <ActivityList
+            activities={pinnedActivities}
+            filter={filter}
+            filterType={filterType}
+            pinnedActivities={pinnedActivities}
+            setPinnedActivities={setPinnedActivities}
+          />}
         </div>
       </div>
     </React.Fragment>

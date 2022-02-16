@@ -3,14 +3,15 @@ import "./ActivityList.css";
 import ActivityItem from "./ActivityItem";
 // import ActivityTypeFilter from "./ActivityTypeFilter";
 
-export default function ActivityList({ data, activities, filter, filterType, pinnedActivites, setPinnedActivites }) {
+export default function ActivityList({ data, activities, filter, filterType, pinnedActivities, setPinnedActivities }) {
 
   const createActivityComponent = (activity) => {
     return (
       <ActivityItem
+        key={activity.activity}
         activity={activity}
-        pinnedActivites={pinnedActivites}
-        setPinnedActivites={pinnedActivites}
+        pinnedActivities={pinnedActivities}
+        setPinnedActivities={setPinnedActivities}
       />
     );
   };

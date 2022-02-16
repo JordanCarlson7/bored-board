@@ -2,20 +2,22 @@ import "./Pin.css";
 
 import React, { useState } from "react";
 
-export default function Pin({activity, pinnedActivities, setPinnedActivites}) {
+export default function Pin({activity, pinnedActivities, setPinnedActivities}) {
   const [pinActive, setPinActive] = useState(activity?.pinned ? true : false);
+  const [index, setIndex] = useState();
 
   const handleClick = () => {
     if(pinActive === false){ 
       activity.pinned = true;
-      setPinnedActivites([...pinnedActivities, activity]);
       setPinActive(true)
-      console.log("BLEH", pinnedActivities)
+      setPinnedActivities([...pinnedActivities, activity]);
     } else{ 
-      setPinnedActivites(pinnedActivities.split(pinnedActivities.indexOf(activity), 1));
       activity.pinned = false;
+      console.log(pinnedActivities.indexOf(activity), activity)
       setPinActive(false)
+      setPinnedActivities(pinnedActivities.splice(pinnedActivities.indexOf(activity), 1));
     }
+    console.log(pinnedActivities)
   };
 
   return (
