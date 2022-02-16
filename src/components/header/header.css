@@ -12,6 +12,7 @@
     color: #aaa; 
     font-weight: bolder;
     padding-left: 1em;
+    cursor: default;
 }
 
 .header__left {

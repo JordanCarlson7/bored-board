@@ -14,10 +14,10 @@
 
 .activities-list-container__right {
   grid-column: 2 / span 3;
+  margin-left: 20px;
 }
 
 .activities-list-container__left {
   grid-column: 1 / span 1;
-  max-width: 200px;
-  
+  max-width: 230px;
 }
