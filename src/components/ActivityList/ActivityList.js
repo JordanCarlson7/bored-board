@@ -3,18 +3,15 @@ import "./ActivityList.css";
 import ActivityItem from "./ActivityItem";
 // import ActivityTypeFilter from "./ActivityTypeFilter";
 
-export default function ActivityList({ data, activities, filter, filterType }) {
+export default function ActivityList({ data, activities, filter, filterType, pinnedActivities, setPinnedActivities }) {
 
   const createActivityComponent = (activity) => {
     return (
       <ActivityItem
-        key={activity.key}
-        activityTitle={activity.activity}
-        activityType={activity.type}
-        participants={activity.participants}
-        price={activity.price}
-        accessibility={activity.accessibility}
-        activityList={activity?.link}
+        key={activity.activity}
+        activity={activity}
+        pinnedActivities={pinnedActivities}
+        setPinnedActivities={setPinnedActivities}
       />
     );
   };
