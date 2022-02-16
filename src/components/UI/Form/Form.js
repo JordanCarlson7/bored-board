@@ -18,10 +18,10 @@ const Form = props => {
     const submitHandler = event => {
         event.preventDefault();
         // DATA VALIDATION IF APPLICABLE
-        // if (!true) {
-        //     setError("ERROR");
-        //     return;
-        // }
+        if (!true) {
+            setError("ERROR");
+            return;
+        }
 
         let accessibility = accessibilityRef.current.checkbox.checked ? accessibilityRef.current.input.value / 100 : null;
         let type = typeRef.current.checkbox.checked ? typeRef.current.input.value.toLowerCase() : null;
