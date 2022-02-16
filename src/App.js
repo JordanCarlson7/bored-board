@@ -31,10 +31,10 @@ function App() {
 
   return (
     <React.Fragment>
-      <Header handleShowFilterForm={setShowForm}/>
+      <Header handleShowFilterForm={() => { setShowForm(!showForm); }}/>
       <div className="activities-list-container">
         <div className="activities-list-container__left">
-          <ActivityTypeFilter setFilter={setFilter} setFilterType={setFilterType} filterType={filterType} activities={activities}/>
+          {!showForm && <ActivityTypeFilter setFilter={setFilter} setFilterType={setFilterType} filterType={filterType} activities={activities}/>}
           {showForm && <Form onSubmit={submitHandler} />}
         </div>
         <div className="activities-list-container__right">
