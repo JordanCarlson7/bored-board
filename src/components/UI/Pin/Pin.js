@@ -13,11 +13,9 @@ export default function Pin({activity, pinnedActivities, setPinnedActivities}) {
       setPinnedActivities([...pinnedActivities, activity]);
     } else{ 
       activity.pinned = false;
-      console.log(pinnedActivities.indexOf(activity), activity)
       setPinActive(false)
-      setPinnedActivities(pinnedActivities.splice(pinnedActivities.indexOf(activity), 1));
+      setPinnedActivities(pinnedActivities.filter(activity => activity?.pinned === true));
     }
-    console.log(pinnedActivities)
   };
 
   return (
