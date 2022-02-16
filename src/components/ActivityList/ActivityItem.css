@@ -73,6 +73,7 @@ h1 {
   padding: 1em 2em;
   background: #464646;
   border-radius: 10px;
+  cursor: default;
 }
 .flip > .front p,
 .flip > .back p {
