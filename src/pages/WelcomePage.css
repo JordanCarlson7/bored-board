@@ -1,0 +1,45 @@
+.container {
+    height: 10em;
+    position: relative;
+    transform: scale(1.1);
+}
+
+#start {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: 3em;
+    border-radius: 10px;
+    border: none;
+    background-color: #aaa;
+    margin: .5em;
+    transition: all 4s ease-in-out;
+    
+
+}
+
+.header {
+    height: 150px;
+    padding: 1em;
+    font-family: 'Press Start 2P', cursive;
+}
+.btn {
+    width: 4em;
+    height: 3em;
+    border-radius: 10px;
+    border: none;
+    background-color: #aaa;
+    margin: .5em;
+}
+
+.btn:hover {
+    background-color: #888;
+    
+}
+#start:hover {
+    background-color: #888;
+    transform: scale(5.0);
+}
