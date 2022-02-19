@@ -1,9 +1,10 @@
 import "./header.css";
 import React, {useState} from "react";
 
-export default function Header({handleShowFilterForm, handleShowPinnedActivities}) {
+export default function Header({handleShowFilterForm, handleShowPinnedActivities, notShowButtons}) {
   const [filterBtnStatus, setFilterBtnStatus] = useState("btn")
   const [pinnedBtnStatus, setPinnedBtnStatus] = useState("btn")
+
 
 
   return (
@@ -11,7 +12,7 @@ export default function Header({handleShowFilterForm, handleShowPinnedActivities
       <div className="header__left">
         <a href="https://www.boredapi.com/"><h1 className="header__title">Bored-Board</h1></a>
       </div>
-      <div className="header__right">
+      {!notShowButtons && <div className="header__right">
         <button className={pinnedBtnStatus} onClick={() => {handleShowPinnedActivities(); pinnedBtnStatus === 'btn'?setPinnedBtnStatus("btn pin-btn-active"):setPinnedBtnStatus('btn')}}>
         <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/30/ffffff/external-pin-map-pin-flatart-icons-outline-flatarticons.png" alt="PIN"/>
         </button>
@@ -19,7 +20,7 @@ export default function Header({handleShowFilterForm, handleShowPinnedActivities
           <img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/32/ffffff/external-filter-interface-kiranshastry-lineal-kiranshastry-1.png" alt="FILTER"/>
         </button>
         {/* Icon sourced via https://icons8.com/icon/XKppWs6hAZkc/filter*/}
-      </div>
+      </div> }
     </div>
   );
 }
