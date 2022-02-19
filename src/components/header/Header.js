@@ -9,7 +9,7 @@ export default function Header({handleShowFilterForm, handleShowPinnedActivities
   return (
     <div className="header">
       <div className="header__left">
-        <h1 className="header__title">Bored-Board</h1>
+        <a href="https://www.boredapi.com/"><h1 className="header__title">Bored-Board</h1></a>
       </div>
       <div className="header__right">
         <button className={pinnedBtnStatus} onClick={() => {handleShowPinnedActivities(); pinnedBtnStatus === 'btn'?setPinnedBtnStatus("btn pin-btn-active"):setPinnedBtnStatus('btn')}}>
